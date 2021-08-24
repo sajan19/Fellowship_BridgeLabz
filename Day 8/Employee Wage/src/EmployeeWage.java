@@ -1,24 +1,42 @@
 import java.util.Random;
 
 public class EmployeeWage {
+    //UseCase1
     public void Attendance() {
         System.out.println("Attendance of Employees: ");
-        double isPresent=Math.floor(Math.random()*10)%2;
-        System.out.println(isPresent);
-        if(isPresent==1){
+        double isPresent = Math.floor(Math.random() * 10) % 2;
+//        System.out.println(isPresent);
+        if (isPresent == 1) {
             System.out.println("Employee is Present");
-        }
-        else{
+        } else {
             System.out.println("Employee is Absent");
         }
+    }
+    //UseCase 2
+    public void DailyWage() {
+        int Present = 1;
+        int empHrs = 0;
+        int empWage = 0;
+        double empCheck = Math.floor(Math.random() * 10) % 2;
+//        System.out.println(empCheck);
+        if (empCheck == Present) {
+            empHrs = 8;
+        } else {
+            empHrs = 0;
+        }
+        int wagePerHr = 20;
+        int totalDailyWage = wagePerHr * empHrs;
+        System.out.println("Total Daily Wage of an Employee is : " + totalDailyWage);
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         //Object
         EmployeeWage obj = new EmployeeWage();
+        //UseCase 1
         obj.Attendance();
-        System.out.println("Welcome to UseCase2");
-
+        //UseCase2
+        obj.DailyWage();
     }
 }
+
