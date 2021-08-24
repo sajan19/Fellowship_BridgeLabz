@@ -85,51 +85,105 @@ public class EmployeeWage {
 //            System.out.println("Total Daily Wage of an Employee is : "+ totalDailyWage);
 //    }
     //Use Case 5 Monthly Wage of Employee
+//    public static final int isFullTime=1;
+//    public static final int isPartTime=2;
+//    public void MonthlyWage(){
+//                int numOfWorkingDays=20;
+//                int empHrs=0;
+//                int empWage=0;
+//                int totalEmpWage=0;
+//                int wagePerHr = 20;
+//                int fullTime = 0;
+//                int partTime = 0;
+//                int absent = 0;
+//                for (int day =0; day<numOfWorkingDays; day++) {
+//                    int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+////            System.out.println("empCheck Value is: " + empCheck);
+//
+//                    if(empCheck==1){
+//                        fullTime++;
+//                    }
+//                    else if(empCheck==2){
+//                        partTime++;
+//                    }
+//                    else if(empCheck==0){
+//                        absent++;
+//                    }
+//
+//                    switch (empCheck) {
+//                        case isFullTime:
+//                            empHrs = 8;
+//                            break;
+//                        case isPartTime:
+//                            empHrs = 4;
+//                            break;
+//                        default:
+//                            empHrs = 0;
+//                            break;
+//                    }
+//                    empWage = empHrs * wagePerHr;
+//                    totalEmpWage +=empWage;
+//
+//                }
+//                System.out.println("Number of days an Employee did Full Time Work: "+ fullTime);
+//                System.out.println("Number of days an Employee did Part Time Work: "+ partTime);
+//                System.out.println("Number of days an Employee was Absent at Work: "+ absent);
+//                System.out.println("Total Monthly Wage of an Employee is : "+ totalEmpWage);
+//            }
+
+            //UseCase 6 Maximum Hours in Month to Calculate Wage
+
     public static final int isFullTime=1;
     public static final int isPartTime=2;
-    public void MonthlyWage(){
-                int numOfWorkingDays=20;
-                int empHrs=0;
-                int empWage=0;
-                int totalEmpWage=0;
-                int wagePerHr = 20;
-                int fullTime = 0;
-                int partTime = 0;
-                int absent = 0;
-                for (int day =0; day<numOfWorkingDays; day++) {
-                    int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+    public void MaximumHours() {
+                    int numOfWorkingDays=20;
+                    int empHrs=0;
+                    int empWage=0;
+                    int totalEmpWage=0;
+                    int wagePerHr = 20;
+                    int fullTime = 0;
+                    int partTime = 0;
+                    int absent = 0;
+                    int totalWorkingDays=0;
+                    int totalEmpHrs=0;
+                    int maxHrsInMonth=100;
+                    while (totalEmpHrs <= maxHrsInMonth && totalWorkingDays<numOfWorkingDays){
+                        totalWorkingDays++;
+//        for (int day =0; day<numOfWorkingDays; day++) {
+                        int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 //            System.out.println("empCheck Value is: " + empCheck);
-
-                    if(empCheck==1){
-                        fullTime++;
+                        if(empCheck==1){
+                            fullTime++;
+                        }
+                        else if(empCheck==2){
+                            partTime++;
+                        }
+                        else if(empCheck==0){
+                            absent++;
+                        }
+                        switch (empCheck) {
+                            case isFullTime:
+                                empHrs = 8;
+                                break;
+                            case isPartTime:
+                                empHrs = 4;
+                                break;
+                            default:
+                                empHrs = 0;
+                                break;
+                        }
+                        totalEmpHrs+=empHrs;
+                        // empWage = empHrs * wagePerHr;
+//            totalEmpWage +=empWage;
                     }
-                    else if(empCheck==2){
-                        partTime++;
-                    }
-                    else if(empCheck==0){
-                        absent++;
-                    }
-
-                    switch (empCheck) {
-                        case isFullTime:
-                            empHrs = 8;
-                            break;
-                        case isPartTime:
-                            empHrs = 4;
-                            break;
-                        default:
-                            empHrs = 0;
-                            break;
-                    }
-                    empWage = empHrs * wagePerHr;
-                    totalEmpWage +=empWage;
-
+                    System.out.println("Number of Days: "+ totalWorkingDays +" Employee Hours: " + totalEmpHrs);
+                    totalEmpWage = totalEmpHrs * wagePerHr;
+                    System.out.println("Number of days an Employee did Full Time Work: "+ fullTime);
+                    System.out.println("Number of days an Employee did Part Time Work: "+ partTime);
+                    System.out.println("Number of days an Employee was Absent at Work: "+ absent);
+                    System.out.println("Total Wage of an Employee is : "+ totalEmpWage);
                 }
-                System.out.println("Number of days an Employee did Full Time Work: "+ fullTime);
-                System.out.println("Number of days an Employee did Part Time Work: "+ partTime);
-                System.out.println("Number of days an Employee was Absent at Work: "+ absent);
-                System.out.println("Total Monthly Wage of an Employee is : "+ totalEmpWage);
-            }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         //Object
@@ -143,7 +197,9 @@ public class EmployeeWage {
         //Use Case 4 - Employee Wage using Switch Case
 //        obj.Switch_Case();
         //Use Case 5 - Montly Wage of Employee
-        obj.MonthlyWage();
+//        obj.MonthlyWage();
+        //UseCase 6 Maximum number of Hrs Condition Check
+        obj.MaximumHours();
     }
 }
 
