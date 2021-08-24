@@ -18,6 +18,7 @@ public class EmployeeWage {
         //Object
         EmployeeWage obj = new EmployeeWage();
         obj.Attendance();
+        System.out.println("Welcome to UseCase2");
 
     }
 }
