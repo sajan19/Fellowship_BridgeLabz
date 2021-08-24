@@ -56,44 +56,94 @@ public class EmployeeWage {
 //        int totalDailyWage = wagePerHr * empHrs;
 //        System.out.println("Total Daily Wage of an Employee is : "+ totalDailyWage);
 //    }
+
     //Use Case 4 - Employee Wage using Switch Case
-    public static final int isFullTime =1;
-    public static final int isPartTime =2;
-    public void Switch_Case(){
-            int empHrs=0;
-            int empWage=0;
-            int empCheck=(int) Math.floor(Math.random()*10)%3;
-            System.out.println("empCheck Value is: " + empCheck);
-            switch (empCheck) {
-                case isFullTime:
-                    empHrs = 8;
-                    System.out.println("Employee is Present and worked FullTime");
-                    break;
-                case isPartTime:
-                    empHrs = 4;
-                    System.out.println("Employee is Present but worked PartTime");
-                    break;
-                default:
-                    empHrs = 0;
-                    System.out.println("Employee is Absent");
-                    break;
+//
+//    public static final int isFullTime =1;
+//    public static final int isPartTime =2;
+//    public void Switch_Case(){
+//            int empHrs=0;
+//            int empWage=0;
+//            int empCheck=(int) Math.floor(Math.random()*10)%3;
+//            System.out.println("empCheck Value is: " + empCheck);
+//            switch (empCheck) {
+//                case isFullTime:
+//                    empHrs = 8;
+//                    System.out.println("Employee is Present and worked FullTime");
+//                    break;
+//                case isPartTime:
+//                    empHrs = 4;
+//                    System.out.println("Employee is Present but worked PartTime");
+//                    break;
+//                default:
+//                    empHrs = 0;
+//                    System.out.println("Employee is Absent");
+//                    break;
+//            }
+//            int wagePerHr = 20;
+//            int totalDailyWage = wagePerHr * empHrs;
+//            System.out.println("Total Daily Wage of an Employee is : "+ totalDailyWage);
+//    }
+    //Use Case 5 Monthly Wage of Employee
+    public static final int isFullTime=1;
+    public static final int isPartTime=2;
+    public void MonthlyWage(){
+                int numOfWorkingDays=20;
+                int empHrs=0;
+                int empWage=0;
+                int totalEmpWage=0;
+                int wagePerHr = 20;
+                int fullTime = 0;
+                int partTime = 0;
+                int absent = 0;
+                for (int day =0; day<numOfWorkingDays; day++) {
+                    int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+//            System.out.println("empCheck Value is: " + empCheck);
+
+                    if(empCheck==1){
+                        fullTime++;
+                    }
+                    else if(empCheck==2){
+                        partTime++;
+                    }
+                    else if(empCheck==0){
+                        absent++;
+                    }
+
+                    switch (empCheck) {
+                        case isFullTime:
+                            empHrs = 8;
+                            break;
+                        case isPartTime:
+                            empHrs = 4;
+                            break;
+                        default:
+                            empHrs = 0;
+                            break;
+                    }
+                    empWage = empHrs * wagePerHr;
+                    totalEmpWage +=empWage;
+
+                }
+                System.out.println("Number of days an Employee did Full Time Work: "+ fullTime);
+                System.out.println("Number of days an Employee did Part Time Work: "+ partTime);
+                System.out.println("Number of days an Employee was Absent at Work: "+ absent);
+                System.out.println("Total Monthly Wage of an Employee is : "+ totalEmpWage);
             }
-            int wagePerHr = 20;
-            int totalDailyWage = wagePerHr * empHrs;
-            System.out.println("Total Daily Wage of an Employee is : "+ totalDailyWage);
-    }
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
         //Object
         EmployeeWage obj = new EmployeeWage();
-        //UseCase 1
+//        UseCase 1
 //        obj.Attendance();
         //UseCase2
 //        obj.DailyWage();
         //Use Case 3 FullTime and PartTime
 //        obj.Full_PartTime();
         //Use Case 4 - Employee Wage using Switch Case
-        obj.Switch_Case();
+//        obj.Switch_Case();
+        //Use Case 5 - Montly Wage of Employee
+        obj.MonthlyWage();
     }
 }
 
