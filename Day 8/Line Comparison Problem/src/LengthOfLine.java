@@ -17,28 +17,33 @@ public class LengthOfLine {
     }
 
     //Method
-    public void measureLength(){
+    public double measureLength(){
 //        System.out.println("To Measure the Length ");
         double length = Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2));
-        System.out.println("Length of Line Segment "+point1+point2+" is: "+ length);
+//        System.out.println("Length of Line Segment "+point1+point2+" is: "+ length);
 
+        return length;
     }
     public static void main(String[] args) {
         System.out.println("Measure the Length of Line");
         //Object
-//        LengthOfLine PQ = new LengthOfLine("P", 5,7,"Q",12,15);
-//        LengthOfLine ST = new LengthOfLine("S", 15,17,"T",25,23);
+        LengthOfLine PQ = new LengthOfLine("P", 5,7,"Q",12,15);
+        LengthOfLine ST = new LengthOfLine("S", 15,17,"T",25,23);
         //Method
-//        PQ.measureLength();
-//        ST.measureLength();
-        String PQ="45";
-        String ST="65";
+        PQ.measureLength();
+        ST.measureLength();
+        double length1= PQ.measureLength();
+//        System.out.println("Length 1 value is: "+ length1);
+        double length2= ST.measureLength();
+//        System.out.println("Length 2 value is: "+ length2);
+//        String PQ="45";
+//        String ST="65";
 //        int ST= 67;
-        if (PQ.equals(ST)){
-            System.out.println("Length of Line PQ is equal to Length of Line ST");
+        if (length1==length2){
+            System.out.println("Length of line PQ "+length1+" is equal to "+length2+" of Line ST");
         }
         else{
-            System.out.println("Length of Line PQ is not equal to Length of Line ST");
+            System.out.println("Length of line PQ "+length1+" is not equal to "+length2+" of Line ST");
         }
 
 
